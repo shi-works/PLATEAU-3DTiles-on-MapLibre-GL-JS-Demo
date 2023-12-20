@@ -1,13 +1,13 @@
 <html>
 
 <head>
-  <title>3D都市モデルPLATEAU（3DTiles）</title>
+  <title>3D都市モデルPLATEAU（3D Tiles）</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
   <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet">
   <script src="https://unpkg.com/pmtiles@2.10.0/dist/index.js"></script>
-  <script src="https://unpkg.com/deck.gl@8.9.33/dist.min.js"></script>
+  <script src="https://unpkg.com/deck.gl@8.9.0/dist.min.js"></script>
   <script src="https://unpkg.com/@loaders.gl/3d-tiles@^2.3.0/dist/dist.min.js"></script>
   <style>
     body {
@@ -74,12 +74,10 @@
     }));
 
     map.on('load', () => {
-      const { MapboxLayer, Tile3DLayer } = deck;
-
       // MapboxLayerを使ったインターリーブ
-      const tile3dLayer = new MapboxLayer({
+      const tile3dLayer = new deck.MapboxLayer({
         id: '13101_chiyoda-ku',
-        type: Tile3DLayer,
+        type: deck.Tile3DLayer,
         // 3D都市モデルPLATEAU 3DTilesソース
         data: 'https://plateau.geospatial.jp/main/data/3d-tiles/bldg/13100_tokyo/13101_chiyoda-ku/low_resolution/tileset.json', // 千代田区
         loader: Tiles3DLoader,
